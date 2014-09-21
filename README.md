@@ -37,9 +37,13 @@ Once the data frame is complete we need to name the columns: this is accomplishe
 The values of the activity, is now factored according to the list in the *activity_labels.txt* file.
 
 ## Data processing
-In order to compute the average of every variable for each activity and each subject, we first split the data frame using Subject and Activity as factors for the splitting. The resulting list ( __split_li__ ) is then passed to an lapply function, in which I have used an inline function ,in order to compute the mean of the variables. This was necessary because the data frame (and hence the resulting split list) has 66 numeric variables but the last two columns are not numeric. So we need to tell the meanCol function that it must apply only to the first 66 columns.
+In order to compute the average of every variable for each activity and each subject, we first split the data frame using Subject and Activity as factors for the splitting. The resulting list ( __split_li__ ) is then passed to an lapply function, in which I have used an inline function ,in order to compute the mean of the variables. This was necessary because the data frame (and hence the resulting split list) has 66 numeric variables but the last two columns are not numeric. So we need to tell the meanCol function that it must work only to the first 66 columns.
+
+Once all the numeric averages have been computed they are put into a matrix that is subsequently transformed into a data frame (__tidy_df__).
+
+The last step is to recover from the __split_li__ list the names of subject and activity.
+These are present in the format "1.WALKING" (subject 1, action WALKING", and so must be recovered using the __str_extract_all__ string functions, in conjunction with the __paste__ funcion.
 
 
 
 
-and the relevant indices are then used to subset the main data frame. 
