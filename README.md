@@ -41,9 +41,9 @@ In order to compute the average of every variable for each activity and each sub
 
 Once all the numeric averages have been computed they are put into a matrix that is subsequently transformed into a data frame (__tidy_df__).
 
-The last step is to recover from the __split_li__ list the names of subject and activity.
+The last step is to recover from the __split_li__ list the values of subject and activity.
 These are present in the format "1.WALKING" (subject 1, action WALKING", and so must be recovered using the __str_extract_all__ string functions, in conjunction with the __paste__ funcion.
 
-
+# Output
 
 
